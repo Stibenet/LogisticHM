@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "120660889304",
+    "firebase_url": "https://logistichm-d4920.firebaseio.com",
+    "project_id": "logistichm-d4920",
+    "storage_bucket": "logistichm-d4920.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:120660889304:android:2becca98adeeeb7e14d1ad",
+        "android_client_info": {
+          "package_name": "com.example.logistichm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "120660889304-8ia4g7e1v0ej85tp18u4nnp5el5rghh0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.logistichm",
+            "certificate_hash": "c697d0966ea252dc7b497af2193ec636f53eb0b2"
+          }
+        },
+        {
+          "client_id": "120660889304-7s81dg3e1djih4s9goc2t05so22inpe0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClWTJJAJvcU12CSrtL0fYSMewDMr4oziQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "120660889304-7s81dg3e1djih4s9goc2t05so22inpe0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
