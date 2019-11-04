@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">LogisticHM</string>
+    <string name="logistics">Грузоперевозки</string>
+    <string name="auth">Авторизация</string>
+    <string name="text_bottom">Войдите в свою учетную запись</string>
+    <string name="btnSignIn">Войти</string>
+    <string name="btnRegister">Регистрация</string>
 </resources>
