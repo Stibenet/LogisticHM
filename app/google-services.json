@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "120660889304-tlse66hbu56g103p7qbmqntfknmku899.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.logistichm",
+            "certificate_hash": "fe992f53dbc9f716c9a8c7be2ea2f099aed751a4"
+          }
+        },
+        {
           "client_id": "120660889304-8ia4g7e1v0ej85tp18u4nnp5el5rghh0.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
