@@ -5,22 +5,22 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/create_order"
+            android:id="@+id/nav_create_order"
             android:icon="@drawable/ic_create_order"
             android:title="@string/create_order_menu"></item>
         <item
-            android:id="@+id/list_order"
+            android:id="@+id/nav_list_order"
             android:icon="@drawable/ic_list_order"
             android:title="@string/list_order_menu"></item>
     </group>
     <item android:title="@string/communication_organization_menu">
         <menu>
             <item
-                android:id="@+id/call_administrator"
+                android:id="@+id/nav_call_administrator"
                 android:icon="@drawable/ic_call_administrator"
                 android:title="@string/call_menu"></item>
             <item
-                android:id="@+id/message_administrator"
+                android:id="@+id/nav_message_administrator"
                 android:icon="@drawable/ic_message_administrator"
                 android:title="@string/message_menu"></item>
         </menu>
