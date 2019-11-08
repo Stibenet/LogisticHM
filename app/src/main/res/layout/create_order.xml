@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp">
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/whereFrom"
+        android:hint="@string/where_from"
+        android:inputType="text"
+        android:text=""
+        android:textColor="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:textSize="20sp"
+
+        app:met_floatingLabel="highlight"
+        app:met_baseColor="#0056d3"
+        app:met_primaryColor="#982360"
+        app:met_singleLineEllipsis="true">
+    </com.rengwuxian.materialedittext.MaterialEditText>
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/where"
+        android:hint="@string/where"
+        android:inputType="text"
+        android:text=""
+        android:textColor="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:textSize="20sp"
+
+        app:met_floatingLabel="highlight"
+        app:met_baseColor="#0056d3"
+        app:met_primaryColor="#982360"
+        app:met_singleLineEllipsis="true">
+    </com.rengwuxian.materialedittext.MaterialEditText>
+
+</LinearLayout>

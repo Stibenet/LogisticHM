@@ -1,8 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-<item android:id="@+id/db" android:title="dashboard" android:icon="@drawable/ic_package_for_delivery"></item>
-<item android:id="@+id/event" android:title="Event" android:icon="@drawable/ic_verification_of_delivery_list_clipboard_symbol"></item>
-<item android:id="@+id/search" android:title="Search" android:icon="@drawable/ic_international_delivery_search"></item>
-<item android:id="@+id/settings" android:title="Settings" android:icon="@drawable/ic_talking_by_phone_auricular_symbol_with_speech_bubble"></item>
-<item android:id="@+id/logout" android:title="LogOut" android:icon="@drawable/ic_international_logistics_delivery_truck_symbol_with_world_grid_behind"></item>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/create_order"
+            android:icon="@drawable/ic_create_order"
+            android:title="@string/create_order_menu"></item>
+        <item
+            android:id="@+id/list_order"
+            android:icon="@drawable/ic_list_order"
+            android:title="@string/list_order_menu"></item>
+    </group>
+    <item android:title="@string/communication_organization_menu">
+        <menu>
+            <item
+                android:id="@+id/call_administrator"
+                android:icon="@drawable/ic_call_administrator"
+                android:title="@string/call_menu"></item>
+            <item
+                android:id="@+id/message_administrator"
+                android:icon="@drawable/ic_message_administrator"
+                android:title="@string/message_menu"></item>
+        </menu>
+    </item>
 </menu>

@@ -20,6 +20,11 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
 
-    <string name="open">Открыть</string>
-    <string name="close">Закрыть</string>
+    <string name="where_from">Откуда</string>
+    <string name="where">Куда</string>
+    <string name="create_order_menu">Создать заявку</string>
+    <string name="list_order_menu">Список заявок</string>
+    <string name="communication_organization_menu">Связь с организацией</string>
+    <string name="call_menu">Позвонить</string>
+    <string name="message_menu">Написать</string>
 </resources>
