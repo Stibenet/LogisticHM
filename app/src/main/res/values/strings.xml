@@ -20,11 +20,25 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
 
-    <string name="where_from">Откуда</string>
-    <string name="where">Куда</string>
+    <string name="where_from">Откуда?</string>
+    <string name="where">Куда?</string>
     <string name="create_order_menu">Создать заявку</string>
     <string name="list_order_menu">Список заявок</string>
     <string name="communication_organization_menu">Связь с организацией</string>
     <string name="call_menu">Позвонить</string>
     <string name="message_menu">Написать</string>
+    <string name="time_filing">Время подачи</string>
+    <string name="how_many_hours">На сколько часов?</string>
+    <string name="textview_number_movers">Укажите количество грузчиков:</string>
+    <string name="comment_order">Комментарий</string>
+    <string name="comment_hint">Хрупкие вещи, холодильник...</string>
+    <string name="button_to_choose_pay">Выбрать способ оплаты</string>
+    <string name="nav_user_profile">Профиль пользователя</string>
+
+    <string-array name="spinner_number_movers">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>

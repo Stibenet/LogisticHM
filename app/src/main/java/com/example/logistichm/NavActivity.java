@@ -55,7 +55,7 @@ public class NavActivity extends AppCompatActivity implements NavigationView.OnN
             case R.id.nav_list_order:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ListOrdersFragment()).commit();
                 break;
-            case R.id.nav_call_administrator:
+            case R.id.nav_profile:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProfileFragment()).commit();
                 break;
         }
