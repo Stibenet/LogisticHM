@@ -122,6 +122,8 @@
         android:background="@drawable/btn_sign_in"
         android:fontFamily="@font/montserrat"
         android:text="@string/button_to_choose_pay"
-        android:layout_gravity="center|bottom"/>
+        android:layout_gravity="center|bottom"
+        android:paddingStart="7dp"
+        android:paddingEnd="7dp"/>
 
 </LinearLayout>
