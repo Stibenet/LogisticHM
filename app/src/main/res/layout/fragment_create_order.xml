@@ -84,7 +84,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/textview_number_movers"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:gravity="center"/>
 
     <Spinner
@@ -96,13 +96,37 @@
         android:layout_marginTop="9dp"/>
 
     <TextView
-        android:id="@+id/textViewCO"
+        android:id="@+id/textViewChoosePay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/comment_order"
-        android:textSize="20sp"
+        android:text="@string/tv_choose_pay"
+        android:textSize="16sp"
         android:gravity="center"
         android:layout_marginTop="15dp"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp">
+
+    <RadioButton
+        android:id="@+id/radio_cash"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:text="@string/radio_cash"
+        android:layout_weight="1" />
+
+    <RadioButton
+        android:id="@+id/radio_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:text="@string/radio_card"
+        android:layout_weight="1" />
+    </RadioGroup>
 
     <EditText
         android:id="@+id/comment"

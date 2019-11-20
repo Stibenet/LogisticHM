@@ -20,6 +20,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+//TODO кнопка плюс внизу экрана для создания заявки, изменить выводимые заявки
 public class NavActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
 
@@ -41,8 +42,8 @@ public class NavActivity extends AppCompatActivity implements NavigationView.OnN
         toggle.syncState();
 
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CreateOrderFragment()).commit();
-            navigationView.setCheckedItem(R.id.nav_create_order);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ListOrdersFragment()).commit();
+            navigationView.setCheckedItem(R.id.nav_list_order);
         }
     }
 

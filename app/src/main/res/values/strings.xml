@@ -32,8 +32,11 @@
     <string name="textview_number_movers">Укажите количество грузчиков:</string>
     <string name="comment_order">Комментарий</string>
     <string name="comment_hint">Хрупкие вещи, холодильник...</string>
-    <string name="button_to_choose_pay">Выбрать способ оплаты</string>
+    <string name="button_to_choose_pay">Отправить заявку</string>
     <string name="nav_user_profile">Профиль пользователя</string>
+    <string name="radio_cash">Наличные</string>
+    <string name="radio_card">Карта</string>
+    <string name="tv_choose_pay">Способ оплаты</string>
 
     <string-array name="spinner_number_movers">
         <item>0</item>

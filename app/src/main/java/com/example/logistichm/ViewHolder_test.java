@@ -10,17 +10,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
-public class ViewHolder extends RecyclerView.ViewHolder {
+public class ViewHolder_test extends RecyclerView.ViewHolder {
 
     View mView;
 
-    public ViewHolder(@NonNull View itemView) {
+    public ViewHolder_test(@NonNull View itemView) {
         super(itemView);
 
         mView = itemView;
     }
 
-    public void setDetails(String whereFrom, String where, String howManyHours, String numberMovers, String comment, String choosePay){
+    public void setDetails(Context ctx, String title, String description, String image){
         TextView mTitleView = mView.findViewById(R.id.rTitleTv);
         TextView mDetailTv = mView.findViewById(R.id.rDescriptionTv);
         ImageView mImageTv = mView.findViewById(R.id.rImageView);

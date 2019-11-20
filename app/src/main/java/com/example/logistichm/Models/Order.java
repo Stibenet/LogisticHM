@@ -1,32 +1,66 @@
 package com.example.logistichm.Models;
 
 public class Order {
-    private String title, image, description;
+    private String whereFrom, where, howManyHours, numberMovers, comment, choosePay;
 
     public Order() {
     }
 
-    public String getTitle() {
-        return title;
+    public Order(String whereFrom, String where, String howManyHours, String numberMovers, String comment, String choosePay) {
+        this.whereFrom = whereFrom;
+        this.where = where;
+        this.howManyHours = howManyHours;
+        this.numberMovers = numberMovers;
+        this.comment = comment;
+        this.choosePay = choosePay;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public String getWhereFrom() {
+        return whereFrom;
     }
 
-    public String getImage() {
-        return image;
+    public void setWhereFrom(String whereFrom) {
+        this.whereFrom = whereFrom;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public String getWhere() {
+        return where;
     }
 
-    public String getDescription() {
-        return description;
+    public void setWhere(String where) {
+        this.where = where;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public String getHowManyHours() {
+        return howManyHours;
     }
+
+    public void setHowManyHours(String howManyHours) {
+        this.howManyHours = howManyHours;
+    }
+
+    public String getNumberMovers() {
+        return numberMovers;
+    }
+
+    public void setNumberMovers(String numberMovers) {
+        this.numberMovers = numberMovers;
+    }
+
+    public String getChoosePay() {
+        return choosePay;
+    }
+
+    public void setChoosePay(String choosePay) {
+        this.choosePay = choosePay;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
 }
