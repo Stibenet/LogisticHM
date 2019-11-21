@@ -1,16 +1,22 @@
 package com.example.logistichm.FragmentsNav;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -34,6 +40,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Objects;
 
 public class CreateOrderFragment extends Fragment {
     private EditText whereFrom, where, howManyHours, comment;
@@ -43,6 +51,9 @@ public class CreateOrderFragment extends Fragment {
 
     private DatabaseReference ref;
     private Order order;
+
+    private TextView currentDateTime;
+    private Calendar dateAndTime = Calendar.getInstance();
 
     @Nullable
     @Override
@@ -54,7 +65,7 @@ public class CreateOrderFragment extends Fragment {
 
         whereFrom = rootView.findViewById(R.id.whereFrom);
         where = rootView.findViewById(R.id.where);
-        howManyHours = rootView.findViewById(R.id.how_many_hours);
+        //howManyHours = rootView.findViewById(R.id.how_many_hours);
         numberMovers = rootView.findViewById(R.id.spinner_number_movers);
         comment = rootView.findViewById(R.id.comment);
         radioGroup = rootView.findViewById(R.id.radioGroup);
@@ -63,6 +74,9 @@ public class CreateOrderFragment extends Fragment {
 
         order = new Order();
         ref = database.getReference("Orders"); //Name table in DB
+
+        currentDateTime = rootView.findViewById(R.id.currentDateTime);
+        setInitialDateTime();
 
         btnCreateOrder.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,4 +140,49 @@ public class CreateOrderFragment extends Fragment {
             }
         });
     }
+
+    //DATE AND TIME
+    // отображаем диалоговое окно для выбора даты
+    public void setDate(View v) {
+        new DatePickerDialog(Objects.requireNonNull(getContext()), d,
+                dateAndTime.get(Calendar.YEAR),
+                dateAndTime.get(Calendar.MONTH),
+                dateAndTime.get(Calendar.DAY_OF_MONTH))
+                .show();
+    }
+
+    // отображаем диалоговое окно для выбора времени
+    public void setTime(View v) {
+        new TimePickerDialog(Objects.requireNonNull(getContext()), t,
+                dateAndTime.get(Calendar.HOUR_OF_DAY),
+                dateAndTime.get(Calendar.MINUTE), true)
+                .show();
+    }
+    // установка начальных даты и времени
+    private void setInitialDateTime() {
+
+        currentDateTime.setText(DateUtils.formatDateTime(getContext(),
+                dateAndTime.getTimeInMillis(),
+                DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_SHOW_YEAR
+                        | DateUtils.FORMAT_SHOW_TIME));
+    }
+
+    // установка обработчика выбора времени
+    TimePickerDialog.OnTimeSetListener t=new TimePickerDialog.OnTimeSetListener() {
+        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+            dateAndTime.set(Calendar.HOUR_OF_DAY, hourOfDay);
+            dateAndTime.set(Calendar.MINUTE, minute);
+            setInitialDateTime();
+        }
+    };
+
+    // установка обработчика выбора даты
+    DatePickerDialog.OnDateSetListener d=new DatePickerDialog.OnDateSetListener() {
+        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+            dateAndTime.set(Calendar.YEAR, year);
+            dateAndTime.set(Calendar.MONTH, monthOfYear);
+            dateAndTime.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+            setInitialDateTime();
+        }
+    };
 }

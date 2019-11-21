@@ -37,6 +37,8 @@
     <string name="radio_cash">Наличные</string>
     <string name="radio_card">Карта</string>
     <string name="tv_choose_pay">Способ оплаты</string>
+    <string name="btnChooseDate">Выбрать дату</string>
+    <string name="btnChooseTime">Выбрать время</string>
 
     <string-array name="spinner_number_movers">
         <item>0</item>

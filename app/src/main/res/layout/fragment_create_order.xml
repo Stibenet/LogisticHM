@@ -43,41 +43,81 @@
         app:met_singleLineEllipsis="true">
     </com.rengwuxian.materialedittext.MaterialEditText>
 
-    <com.rengwuxian.materialedittext.MaterialEditText
-
+    <TextView android:id="@+id/currentDateTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/time_filing"
-        android:hint="@string/time_filing"
-        android:inputType="text"
-        android:text=""
-        android:textColor="@color/colorPrimary"
-        android:textColorHint="@color/colorPrimaryDark"
-        android:textSize="20sp"
+        android:textSize="18sp"
+        android:hint="xx.xx.xxxx, xx:xx"
+        android:gravity="center"/>
 
-        app:met_floatingLabel="highlight"
-        app:met_baseColor="#0056d3"
-        app:met_primaryColor="#982360"
-        app:met_singleLineEllipsis="true">
-    </com.rengwuxian.materialedittext.MaterialEditText>
-
-    <com.rengwuxian.materialedittext.MaterialEditText
-
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/how_many_hours"
-        android:hint="@string/how_many_hours"
-        android:inputType="text"
-        android:text=""
-        android:textColor="@color/colorPrimary"
-        android:textColorHint="@color/colorPrimaryDark"
-        android:textSize="20sp"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_margin="15dp"
+        >
 
-        app:met_floatingLabel="highlight"
-        app:met_baseColor="#0056d3"
-        app:met_primaryColor="#982360"
-        app:met_singleLineEllipsis="true">
-    </com.rengwuxian.materialedittext.MaterialEditText>
+    <Button
+        android:id="@+id/dateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="6dp"
+        android:layout_weight="1"
+        android:onClick="setDate"
+        android:text="@string/btnChooseDate"
+        android:background="@drawable/btn_sign_in"
+        android:fontFamily="@font/montserrat"/>
+
+    <Button android:id="@+id/timeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_weight="1"
+        android:text="@string/btnChooseTime"
+        android:onClick="setTime"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/btn_sign_in"
+        android:fontFamily="@font/montserrat"/>
+
+    </LinearLayout>
+
+    <!--<com.rengwuxian.materialedittext.MaterialEditText-->
+
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/time_filing"-->
+        <!--android:hint="@string/time_filing"-->
+        <!--android:inputType="text"-->
+        <!--android:text=""-->
+        <!--android:textColor="@color/colorPrimary"-->
+        <!--android:textColorHint="@color/colorPrimaryDark"-->
+        <!--android:textSize="20sp"-->
+
+        <!--app:met_floatingLabel="highlight"-->
+        <!--app:met_baseColor="#0056d3"-->
+        <!--app:met_primaryColor="#982360"-->
+        <!--app:met_singleLineEllipsis="true">-->
+    <!--</com.rengwuxian.materialedittext.MaterialEditText>-->
+
+    <!--<com.rengwuxian.materialedittext.MaterialEditText-->
+
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/how_many_hours"-->
+        <!--android:hint="@string/how_many_hours"-->
+        <!--android:inputType="text"-->
+        <!--android:text=""-->
+        <!--android:textColor="@color/colorPrimary"-->
+        <!--android:textColorHint="@color/colorPrimaryDark"-->
+        <!--android:textSize="20sp"-->
+
+        <!--app:met_floatingLabel="highlight"-->
+        <!--app:met_baseColor="#0056d3"-->
+        <!--app:met_primaryColor="#982360"-->
+        <!--app:met_singleLineEllipsis="true">-->
+    <!--</com.rengwuxian.materialedittext.MaterialEditText>-->
 
     <TextView
         android:id="@+id/textViewNM"
@@ -85,7 +125,8 @@
         android:layout_height="wrap_content"
         android:text="@string/textview_number_movers"
         android:textSize="16sp"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:layout_marginTop="15dp"/>
 
     <Spinner
         android:id="@+id/spinner_number_movers"
