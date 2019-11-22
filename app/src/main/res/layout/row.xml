@@ -15,29 +15,85 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_margin="15dp">
+
         <TextView
-            android:id="@+id/rTitleTv"
-            android:text="Title"
+            android:id="@+id/rowDateTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DateTime"
             android:textColor="#000"
-            android:textSize="22sp"
+            android:textSize="20sp"
             android:textStyle="bold"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_marginEnd="6dp"
+            android:layout_weight="1">
         </TextView>
-        <ImageView
-            android:id="@+id/rImageView"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:scaleType="centerCrop"
-            android:adjustViewBounds="true"
-            android:background="@drawable/loading_image">
-        </ImageView>
+
         <TextView
-            android:id="@+id/rDescriptionTv"
+            android:id="@+id/rowPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginStart="6dp"
+            android:layout_weight="1">
+        </TextView>
+
+    </LinearLayout>
+
+        <TextView
+            android:id="@+id/rowWhereFrom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="This will be the description of the order"
-            android:textSize="20sp">
+            android:textColor="#000"
+            android:textSize="23sp"
+            android:text="@string/rowTVWhereFrom"
+            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/ic_startpoint">
+        </TextView>
+
+        <TextView
+            android:id="@+id/rowWhere"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:textSize="23sp"
+            android:text="@string/rowTVWhere"
+            android:layout_marginTop="20dp"
+            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/ic_endpoint">
+        </TextView>
+
+        <TextView
+            android:id="@+id/rowComment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:text="@string/rowTVComment"
+            android:layout_marginTop="20dp"
+            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/ic_comment">
+        </TextView>
+
+        <TextView
+            android:id="@+id/rowNumberMovers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:text="@string/rowTVNumberMovers"
+            android:layout_marginTop="20dp"
+            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/ic_movers">
         </TextView>
 
     </LinearLayout>

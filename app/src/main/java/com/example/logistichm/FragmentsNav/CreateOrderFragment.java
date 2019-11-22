@@ -6,13 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -23,31 +21,24 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.logistichm.MainActivity;
 import com.example.logistichm.Models.Order;
-import com.example.logistichm.Models.User;
 import com.example.logistichm.NavActivity;
 import com.example.logistichm.R;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Objects;
 
 public class CreateOrderFragment extends Fragment {
-    private EditText whereFrom, where, howManyHours, comment;
+    private EditText whereFrom, where, comment;
     private Spinner numberMovers;
     private RadioGroup radioGroup;
     private static String choosePay; //For store value from radioGroup
+    private Button btnCreateOrder, btnSetDate, btnSetTime;
 
     private DatabaseReference ref;
     private Order order;
@@ -59,24 +50,46 @@ public class CreateOrderFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_create_order, container, false);
+        order = new Order();
 
-        Button btnCreateOrder = rootView.findViewById(R.id.button_create_order);
+        btnCreateOrder = rootView.findViewById(R.id.button_create_order);
+        btnSetDate = rootView.findViewById(R.id.dateButton);
+        btnSetTime = rootView.findViewById(R.id.timeButton);
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         whereFrom = rootView.findViewById(R.id.whereFrom);
         where = rootView.findViewById(R.id.where);
-        //howManyHours = rootView.findViewById(R.id.how_many_hours);
         numberMovers = rootView.findViewById(R.id.spinner_number_movers);
         comment = rootView.findViewById(R.id.comment);
         radioGroup = rootView.findViewById(R.id.radioGroup);
 
         radioChoosePay(); //Get value from radioGroup choose pay
 
-        order = new Order();
         ref = database.getReference("Orders"); //Name table in DB
 
-        currentDateTime = rootView.findViewById(R.id.currentDateTime);
+        currentDateTime = rootView.findViewById(R.id.currentDateTime); //date and time order
         setInitialDateTime();
+        getListenerButtons();
+
+        return rootView;
+    }
+
+    //ALL BUTTONS
+    private void getListenerButtons(){
+        btnSetDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setDate(view);
+            }
+        });
+
+        btnSetTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setTime(view);
+            }
+        });
 
         btnCreateOrder.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,15 +100,13 @@ public class CreateOrderFragment extends Fragment {
                 startActivity(new Intent(getActivity(), NavActivity.class));
             }
         });
-
-        return rootView;
     }
 
     //Get data order from object
     private void getValues(){
         order.setWhereFrom(whereFrom.getText().toString());
         order.setWhere(where.getText().toString());
-        order.setHowManyHours(howManyHours.getText().toString());
+        order.setDateTimeOrder(resultValueDateTime());
         order.setNumberMovers(numberMovers.getSelectedItem().toString());
         order.setComment(comment.getText().toString());
         order.setChoosePay(choosePay);
@@ -113,7 +124,6 @@ public class CreateOrderFragment extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
     }
@@ -158,17 +168,21 @@ public class CreateOrderFragment extends Fragment {
                 dateAndTime.get(Calendar.MINUTE), true)
                 .show();
     }
-    // установка начальных даты и времени
-    private void setInitialDateTime() {
 
-        currentDateTime.setText(DateUtils.formatDateTime(getContext(),
+    private String resultValueDateTime(){
+        return DateUtils.formatDateTime(getContext(),
                 dateAndTime.getTimeInMillis(),
                 DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_SHOW_YEAR
-                        | DateUtils.FORMAT_SHOW_TIME));
+                        | DateUtils.FORMAT_SHOW_TIME);
+    }
+
+    // установка начальных даты и времени
+    private void setInitialDateTime() {
+        currentDateTime.setText(resultValueDateTime());
     }
 
     // установка обработчика выбора времени
-    TimePickerDialog.OnTimeSetListener t=new TimePickerDialog.OnTimeSetListener() {
+    private TimePickerDialog.OnTimeSetListener t = new TimePickerDialog.OnTimeSetListener() {
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
             dateAndTime.set(Calendar.HOUR_OF_DAY, hourOfDay);
             dateAndTime.set(Calendar.MINUTE, minute);
@@ -177,7 +191,7 @@ public class CreateOrderFragment extends Fragment {
     };
 
     // установка обработчика выбора даты
-    DatePickerDialog.OnDateSetListener d=new DatePickerDialog.OnDateSetListener() {
+    private DatePickerDialog.OnDateSetListener d = new DatePickerDialog.OnDateSetListener() {
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
             dateAndTime.set(Calendar.YEAR, year);
             dateAndTime.set(Calendar.MONTH, monthOfYear);

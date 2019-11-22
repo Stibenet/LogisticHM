@@ -10,17 +10,19 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.logistichm.Models.Order;
 import com.example.logistichm.Models.Order_test;
 import com.example.logistichm.R;
+import com.example.logistichm.ViewHolder;
 import com.example.logistichm.ViewHolder_test;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+//TODO 2 tabs: all and current orders
 public class ListOrdersFragment extends Fragment {
-    RecyclerView mRecyclerView;
-    FirebaseDatabase mFirebaseDatabase;
-    DatabaseReference mRef;
+    private RecyclerView mRecyclerView;
+    private DatabaseReference mRef;
 
     @Nullable
     @Override
@@ -32,24 +34,33 @@ public class ListOrdersFragment extends Fragment {
         mRecyclerView.setHasFixedSize(true);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mFirebaseDatabase = FirebaseDatabase.getInstance();
-        mRef = mFirebaseDatabase.getReference("Data");
+
+        FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
+        mRef = mFirebaseDatabase.getReference("Orders");
 
         showOrders();
+
         return rootView;
     }
 
-    public void showOrders(){
-        FirebaseRecyclerAdapter<Order_test, ViewHolder_test> firebaseRecyclerAdapter =
-                new FirebaseRecyclerAdapter<Order_test, ViewHolder_test>(
-                        Order_test.class,
-                        R.layout.row_test,
-                        ViewHolder_test.class,
+    private void showOrders(){
+        FirebaseRecyclerAdapter<Order, ViewHolder> firebaseRecyclerAdapter =
+                new FirebaseRecyclerAdapter<Order, ViewHolder>(
+                        Order.class,
+                        R.layout.row,
+                        ViewHolder.class,
                         mRef
                 ) {
                     @Override
-                    protected void populateViewHolder(ViewHolder_test viewHolder, Order_test order, int position) {
-                        viewHolder.setDetails(getActivity(), order.getTitle(), order.getDescription(), order.getImage());
+                    protected void populateViewHolder(ViewHolder viewHolder, Order order, int position) {
+                        viewHolder.setDetails(
+                                getActivity(),
+                                order.getDateTimeOrder(),
+                                order.getChoosePay(),
+                                order.getWhereFrom(),
+                                order.getWhere(),
+                                order.getComment(),
+                                order.getNumberMovers());
                     }
                 };
         mRecyclerView.setAdapter(firebaseRecyclerAdapter);

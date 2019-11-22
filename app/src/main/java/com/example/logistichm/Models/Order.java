@@ -1,15 +1,15 @@
 package com.example.logistichm.Models;
 
 public class Order {
-    private String whereFrom, where, howManyHours, numberMovers, comment, choosePay;
+    private String whereFrom, where, dateTimeOrder, numberMovers, comment, choosePay;
 
     public Order() {
     }
 
-    public Order(String whereFrom, String where, String howManyHours, String numberMovers, String comment, String choosePay) {
+    public Order(String whereFrom, String where, String dateTimeOrder, String numberMovers, String comment, String choosePay) {
         this.whereFrom = whereFrom;
         this.where = where;
-        this.howManyHours = howManyHours;
+        this.dateTimeOrder = dateTimeOrder;
         this.numberMovers = numberMovers;
         this.comment = comment;
         this.choosePay = choosePay;
@@ -31,12 +31,12 @@ public class Order {
         this.where = where;
     }
 
-    public String getHowManyHours() {
-        return howManyHours;
+    public String getDateTimeOrder() {
+        return dateTimeOrder;
     }
 
-    public void setHowManyHours(String howManyHours) {
-        this.howManyHours = howManyHours;
+    public void setDateTimeOrder(String dateTimeOrder) {
+        this.dateTimeOrder = dateTimeOrder;
     }
 
     public String getNumberMovers() {
